@@ -18,7 +18,7 @@ public class HelloWorldAsiaConsumer {
 
   public static void main(String[] args) {
     Properties kaProperties = new Properties();  //<1>
-    kaProperties.put("bootstrap.servers", "192.168.168.87:31319");
+    kaProperties.put("bootstrap.servers", "localhost:9092");
     kaProperties.put("group.id", "kinaction_helloconsumer");
     kaProperties.put("enable.auto.commit", "true");
     kaProperties.put("auto.commit.interval.ms", "1000");
@@ -34,7 +34,7 @@ public class HelloWorldAsiaConsumer {
 
   private void consume(Properties kaProperties) {
     try (KafkaConsumer<String, String> consumer = new KafkaConsumer<>(kaProperties)) {
-      consumer.subscribe(List.of("test-topic"));  //<2>
+      consumer.subscribe(List.of("topic1"));  //<2>
 
       while (keepConsuming) {
         ConsumerRecords<String, String> records = consumer.poll(Duration.ofMillis(250));  //<3>

@@ -13,7 +13,7 @@ public class HelloWorldAsiaProducer {
     Properties kaProperties = new Properties();   //<1>
     // kaProperties.put("bootstrap.servers", "localhost:9092,localhost:9093,localhost:9094");   //<2>
 
-    kaProperties.put("bootstrap.servers", "192.168.168.87:31319");   //<2>
+    kaProperties.put("bootstrap.servers", "localhost:9092");   //<2>
 
     kaProperties.put(
         "key.serializer", "org.apache.kafka.common.serialization.StringSerializer");    //<3>
@@ -23,7 +23,7 @@ public class HelloWorldAsiaProducer {
     try (Producer<String, String> producer = new KafkaProducer<>(kaProperties)) { //<4>
 
       ProducerRecord<String, String> producerRecord =
-          new ProducerRecord<>("test-topic", null, "hello world again!");   //<5>
+          new ProducerRecord<>("topic1", null, "hello world again 2!");   //<5>
 
       producer.send(producerRecord);    //<6>
       producer.close();   //<7>
