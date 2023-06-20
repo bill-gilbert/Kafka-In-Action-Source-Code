@@ -10,9 +10,9 @@ import java.time.Duration;
 import java.util.List;
 import java.util.Properties;
 
-public class HelloWorldAsiaConsumer {
+public class AsiaCreditConsumer {
 
-  final static Logger log = LoggerFactory.getLogger(HelloWorldAsiaConsumer.class);
+  final static Logger log = LoggerFactory.getLogger(AsiaCreditConsumer.class);
 
   private volatile boolean keepConsuming = true;
 
@@ -27,7 +27,7 @@ public class HelloWorldAsiaConsumer {
     kaProperties.put("value.deserializer",
               "org.apache.kafka.common.serialization.StringDeserializer");
 
-    HelloWorldAsiaConsumer helloWorldConsumer = new HelloWorldAsiaConsumer();
+    AsiaCreditConsumer helloWorldConsumer = new AsiaCreditConsumer();
     helloWorldConsumer.consume(kaProperties);
     Runtime.getRuntime().addShutdownHook(new Thread(helloWorldConsumer::shutdown));
   }
